@@ -6,12 +6,6 @@ const updateScreen = (number) => {
   calculatorScreen.value = number;
 };
 
-numbers.forEach((number) => {
-  number.addEventListener("click", (event) => {
-    updateScreen(event.target.value);
-  });
-});
-
 let prevNumber = "";
 let calculationOperator = "";
 let currentNumber = "0";
@@ -19,7 +13,7 @@ let currentNumber = "0";
 numbers.forEach((number) => {
   number.addEventListener("click", (event) => {
     inputNumber(event.target.value);
-    updateScreen(currentNumber);
+    parseFloat(updateScreen(currentNumber));
   });
 });
 
@@ -51,7 +45,15 @@ const equalSign = document.querySelector(".equal-sign");
 
 equalSign.addEventListener("click", () => {
   calculate();
-  updateScreen(parseFloat(currentNumber).toPrecision(1));
+  parseFloat(updateScreen(currentNumber));
+});
+
+const percentageSign = document.querySelector(".percentage");
+
+percentageSign.addEventListener("click", () => {
+  if (condition) {
+  }
+  parseFloat(updateScreen(currentNumber / 100));
 });
 
 const calculate = () => {
@@ -72,7 +74,7 @@ const calculate = () => {
     default:
       break;
   }
-  currentNumber = result;
+  currentNumber = parseFloat(result);
   calculationOperator = "";
 };
 
@@ -100,3 +102,5 @@ decimal.addEventListener("click", (event) => {
   inputDecimal(event.target.value);
   updateScreen(currentNumber);
 });
+
+////////////////////////////////////////////////////////////////////////
