@@ -51,9 +51,8 @@ equalSign.addEventListener("click", () => {
 const percentageSign = document.querySelector(".percentage");
 
 percentageSign.addEventListener("click", () => {
-  if (condition) {
-  }
-  parseFloat(updateScreen(currentNumber / 100));
+  const percentage = currentNumber / 100;
+  updateScreen(percentage);
 });
 
 const calculate = () => {
@@ -102,5 +101,3 @@ decimal.addEventListener("click", (event) => {
   inputDecimal(event.target.value);
   updateScreen(currentNumber);
 });
-
-////////////////////////////////////////////////////////////////////////
